@@ -5,9 +5,9 @@ import { validationData } from "../../middleware/validation.js";
 import { createbook, updatebook } from "./validation.js";
 
 const book = Router()
-book.get("/" , controller.getAllBook , validationData)
-book.get("/:title" , controller.getSingelBook , validationData)
-book.post("/" , controller.creatBook , validationData , createbook)
-book.put("/" , controller.updateBook , validationData , updatebook)
-book.delete("/" , controller.deleteBook , validationData)
+book.get("/:page" , controller.getAllBook )
+book.get("/:title" , controller.getSingelBook )
+book.post("/", createbook , controller.creatBook , validationData )
+book.put("/:id" , updatebook ,controller.updateBook , validationData )
+book.delete("/:id" , controller.deleteBook )
 export default book ;

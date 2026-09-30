@@ -1,6 +1,5 @@
 import { body } from "express-validator";
 export const createbook = [
-    body("id", "id is required, id must be a number").notEmpty().isInt(),
     body("title", "title is required, title must be a string")
       .notEmpty()
       .isString(),

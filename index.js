@@ -1,16 +1,14 @@
 import express from "express"
-import mongoose from "mongoose";
 import router from "./src/router/index.js";
+import  config  from "config";
+import connectedToMongoDB from "./src/start/db.js";
 
 const app = express();
+const port = config.get("port")
 
-mongoose.connect("mongodb+srv://admin:admin@cluster0.exduydk.mongodb.net/").then(()=>{
-    console.log("app connected to mpngoDB ")
-}).catch((e)=>{
-    console.error(e)
-})
-
+connectedToMongoDB();
+app.use(express.json())
 app.use("/api" , router)
 
 
-app.listen(3000 , ()=> console.log(`app running on port 3000 `))
+app.listen(port , ()=> console.log(`app running on port ${port} `))
