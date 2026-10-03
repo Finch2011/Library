@@ -39,7 +39,7 @@ export default new (class {
     data.author = author._id;
   
     const newBook = await Library.create(data);
-چ
+
     const populated = await Library.findById(newBook._id).populate(
       "author",
       "firstName LastName Age"
